@@ -52,7 +52,7 @@ const Carousel = ({ style, imageUrl, data, title }) => {
           </div>
         </div>
       </div>
-      <div className="overflow-x-scroll no-scrollbar mt-4" ref={containerRef}>
+      <div className="overflow-x-scroll scrollbar-hide mt-4" ref={containerRef}>
         <div className='flex space-x-4'>
           {
             data.map((offer) => (
@@ -62,8 +62,8 @@ const Carousel = ({ style, imageUrl, data, title }) => {
                     className='cursor-pointer'
                     src={imageUrl + offer.imageId}
                     alt={offer.id}
-                    width={width} // Use width from style prop
-                    height={height} // Use height from style prop
+                    width={width}
+                    height={height} 
                   />
                 </div>
               </a>

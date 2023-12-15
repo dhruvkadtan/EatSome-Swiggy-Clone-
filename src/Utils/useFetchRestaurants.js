@@ -22,8 +22,10 @@ const useFetchRestaurants = () => {
 
         const getAllRestaurants = async( geometry) => {
             setIsDataFetched(false)
-            const data = await fetch(FETCH_CARDS_URL + 'lat=' + geometry.lat + '&lng=' + geometry.lng);
-            const json = await data.json();
+            const data = await fetch(FETCH_CARDS_URL + 'lat=' + geometry.lat + '&lng=' + geometry.lng)
+
+            const json = await data?.json();
+            console.log(json)
             const sections = new Map();
             let title = '';
             let isFirstTime = true;
