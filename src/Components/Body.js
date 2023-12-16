@@ -24,7 +24,7 @@ const Body = () => {
                 />
             </div>
             }
-            {console.log(cards)}
+           
              {
                 cards.map((card, index) => (<Section key={index} card={card}/>))
             }

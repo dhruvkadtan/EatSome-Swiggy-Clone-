@@ -8,4 +8,6 @@ export const ADDRESS_RECOMMEND_URL = 'https://www.swiggy.com/dapi/misc/address-r
 
 export const FETCH_CARDS_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?";
 
-export const UPDATE_RESTAURANTS_LIST_URL = 'https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/update';
+export const UPDATE_RESTAURANTS_LIST_URL = 'https://www.swiggy.com/dapi/restaurants/list/update';
+
+export const MENU_IMG_CDN = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";

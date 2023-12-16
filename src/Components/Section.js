@@ -39,7 +39,7 @@ const Section = ({card}) => {
     }
 
     useEffect(() => {
-        console.log("Upper useEffect")
+     
         if(card[0] === 'restaurants_list') {
             setRestaurants(allRestaurants);
             if(search.searchText == '')
@@ -59,7 +59,7 @@ const Section = ({card}) => {
     let dispatch = useDispatch()
 
     useEffect(() => {
-        console.log("lower useEffect")
+      
         if(card[0] === 'restaurants_list') {
             let isFetchCalled = false;
             let res = card[1].data?.gridElements?.infoWithStyle?.restaurants;
@@ -71,13 +71,14 @@ const Section = ({card}) => {
                 let latLng = JSON.parse(localStorage.getItem('latLng'));
                 const data = await fetch(UPDATE_RESTAURANTS_LIST_URL, {
                     method: "POST", 
+                    mode : 'cors',
                     headers: {
                       "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
                         "lat": latLng?.lat ? latLng.lat : 17.385044,
                         "lng": latLng?.lng ? latLng.lng : 78.486671,
-                        "nextOffset": "COVCELQ4KICg97fn1ojZJTCnEw==",
+                        "nextOffset": "COVCELQ4KICQvKLaz5a5BDCnEzgC",
                         "widgetOffset": {
                             "NewListingView_Topical_Fullbleed": "",
                             "NewListingView_category_bar_chicletranking_TwoRows": "",
@@ -95,7 +96,7 @@ const Section = ({card}) => {
                             "apiName": "FoodHomePage"
                         },
                         "page_type": "DESKTOP_WEB_LISTING",
-                        "_csrf": "YH5n08SgbkUZ-zpAL-zeJwmc09fXXBG7yc5H8D_s"
+                        "_csrf": "SPLRMDCj4ep9-Xa2Bql5uyN33EzQQf4pCgkj3Rvo"
                     }), 
                 });
                 const json = await data.json();
