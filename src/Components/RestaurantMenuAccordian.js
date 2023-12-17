@@ -1,7 +1,9 @@
-import { MENU_IMG_CDN } from "../Utils/Constants";
+import Item from "./Item";
+
 
 const RestaurantMenuAccordion = ({ cardDetails, isAccordionOpen,setShowIndex }) => {
 
+  
     return(
         <div>
             <div className="cursor-pointer flex justify-between mb-8 border-b-8 border-gray-200" 
@@ -30,27 +32,7 @@ const RestaurantMenuAccordion = ({ cardDetails, isAccordionOpen,setShowIndex }) 
             {
                 isAccordionOpen &&   <div>
                     {
-                        cardDetails?.itemCards && cardDetails?.itemCards.map((detail) => {
-                            return(
-                            <div className="flex border-b-2 border-gray-300 p-3 space-x-2 justify-between" key={detail?.card?.info?.id}>
-                                <div style={{"maxWidth" : "calc(100% - 144px)"}}>
-                                    <h2 className="text-slate-800 font-semibold">{detail?.card?.info?.name}</h2>
-                                    <h3 className="text-slate-800 font-semibold">{detail?.card?.info?.price / 100}</h3>
-                                    <h3 className="text-gray-400 mt-2 mb-2">{detail?.card?.info?.description}</h3>
-                                </div>
-                                <div className="">
-                                    <img
-                                        className="rounded-md"
-                                        style={{"width" : "118px" , "height" : "96px" ,"background" : "rgb(251, 238, 215)"}}
-                                        src={MENU_IMG_CDN + detail?.card?.info?.imageId}
-                                    />
-                                    <button 
-                                             className="ml-[20%] font-semibold rounded-md text-sm px-5 py-2 text-green-500 border-2 border-gray-300">
-                                        ADD
-                                    </button>
-                                </div>
-                            </div>
-                        )})
+                        cardDetails?.itemCards && cardDetails?.itemCards.map((detail) => <Item item={detail}/>)
                     }
                 </div>
             }
@@ -59,3 +41,18 @@ const RestaurantMenuAccordion = ({ cardDetails, isAccordionOpen,setShowIndex }) 
 }
 
 export default RestaurantMenuAccordion;
+
+
+
+/* 
+
+
+
+                                <div className="relative justify-center]">
+                                    
+                                    <button onClick={() => dispatch(addItem(detail?.card?.info))}
+                                             className="absolute bottom-0 font-semibold rounded-md text-sm px-5 py-2 text-green-500 border-2 border-gray-300">
+                                        ADD
+                                    </button>
+                                </div>
+*/

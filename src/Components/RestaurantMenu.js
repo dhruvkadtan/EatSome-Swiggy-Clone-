@@ -31,7 +31,7 @@ const RestaurantMenu = () => {
         setRestaurant(json?.data?.cards[0]?.card?.card?.info);
         setOffers(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers);
         setMenu(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-        console.log(json)
+
     }
 
     if(restaurant === null)

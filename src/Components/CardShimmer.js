@@ -2,7 +2,7 @@ const CardShimmer = () => {
     return (
 
             <div className="grid grid-cols-4 pl-[20%] pr-[20%]">
-                  {Array(12).fill("").map((e) => {
+                  {Array(12).fill("").map(() => {
                     return (
                         <div className="w-[100%] h-[100%] rounded-lg p-2 hover:cursor-pointer hover:scale-95 overflow-hidden">
                             <div className="w-60 h-40 bg-gray-300 rounded-lg"></div>
