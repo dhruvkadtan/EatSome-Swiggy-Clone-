@@ -3,6 +3,10 @@ import { useParams } from "react-router-dom";
 import { MENU_API } from "../Utils/Constants";
 import RestaurantMenuAccordion from "./RestaurantMenuAccordian";
 import CardShimmer from "./CardShimmer";
+import { useSelector , useDispatch } from "react-redux";
+import { clearCart } from "../Utils/CartSlice";
+import Loading from "./Loading";
+
 
 const RestaurantMenu = () => {
     const resId = useParams();
@@ -22,7 +26,9 @@ const RestaurantMenu = () => {
     };
 
     useEffect(() => {
+       
         getRestaurantInfo();
+       
     },[])
 
     const getRestaurantInfo = async() => {
@@ -36,7 +42,7 @@ const RestaurantMenu = () => {
 
     if(restaurant === null)
     {
-        return (<CardShimmer/>)
+        return (<><Loading text={"Hold Tight, Loading Menu"}/><CardShimmer/></>)
     }
 
     return(
@@ -147,6 +153,7 @@ const RestaurantMenu = () => {
                                 (card?.card?.card?.itemCards )
                                 && 
                                 <RestaurantMenuAccordion
+                                    resDetails = {restaurant}
                                     key={card?.card?.card?.title}
                                     cardDetails = {card?.card?.card}
                                     isAccordionOpen={index === showIndex}

@@ -18,6 +18,8 @@ const Section = ({card}) => {
     const [restaurants, setRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
+   
+
     const containerRef = useRef(null);
     const scrollDivRef = useRef(null);
 
@@ -39,7 +41,7 @@ const Section = ({card}) => {
     }
 
     useEffect(() => {
-     
+      
         if(card[0] === 'restaurants_list') {
             setRestaurants(allRestaurants);
             if(search.searchText == '')

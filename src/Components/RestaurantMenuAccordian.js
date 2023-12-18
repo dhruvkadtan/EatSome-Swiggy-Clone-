@@ -1,7 +1,7 @@
 import Item from "./Item";
 
 
-const RestaurantMenuAccordion = ({ cardDetails, isAccordionOpen,setShowIndex }) => {
+const RestaurantMenuAccordion = ({resDetails, cardDetails, isAccordionOpen,setShowIndex }) => {
 
   
     return(
@@ -32,7 +32,7 @@ const RestaurantMenuAccordion = ({ cardDetails, isAccordionOpen,setShowIndex }) 
             {
                 isAccordionOpen &&   <div>
                     {
-                        cardDetails?.itemCards && cardDetails?.itemCards.map((detail) => <Item item={detail}/>)
+                        cardDetails?.itemCards && cardDetails?.itemCards.map((detail) => <Item resDetails={resDetails} item={detail}/>)
                     }
                 </div>
             }

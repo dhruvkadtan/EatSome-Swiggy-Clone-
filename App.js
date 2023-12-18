@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Navbar from "./src/Components/Navbar";
-import Footer from "./src/Components/Footer";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Help from "./src/Components/Help";
 import SignIn from "./src/Components/SignIn";
@@ -17,7 +16,7 @@ const App = () => {
             <>
                 <Navbar/>
                 <Outlet/>
-                <Footer/>
+             
             </>
         </Provider>
     )
