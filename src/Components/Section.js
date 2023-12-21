@@ -17,9 +17,9 @@ const Section = ({card}) => {
     const [isLoading, setIsLoading] = useState(false);
     const [restaurants, setRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+    
 
-   
-
+    
     const containerRef = useRef(null);
     const scrollDivRef = useRef(null);
 
@@ -33,7 +33,7 @@ const Section = ({card}) => {
     };
     
     const allRestaurants = useSelector((store) => store.restaurants.restaurants)
-    const address = useSelector((store) => store.location.location);
+    
    
 
     if(card[0] === 'restaurants_list') {
@@ -41,22 +41,33 @@ const Section = ({card}) => {
     }
 
     useEffect(() => {
-      
+
         if(card[0] === 'restaurants_list') {
             setRestaurants(allRestaurants);
-            if(search.searchText == '')
-                setFilteredRestaurants(allRestaurants);
-            else {
-                allRestaurants.map((res) => {
-                   
-                })
-            }
+            if(search.searchText.length > 0)
+            {
+               let filtered = []
+               allRestaurants.map((res) => {
+                    if(res.info.name.toLowerCase().includes(search.searchText.toLowerCase()))
+                        filtered.push(res)
+               })
+               setFilteredRestaurants(filtered)
+            } else 
+                setFilteredRestaurants(allRestaurants);   
           
         } else if (card[0] === 'top_brands_for_you') {
             setRestaurants(card[1].data.gridElements.infoWithStyle.restaurants);
-            setFilteredRestaurants(card[1].data.gridElements.infoWithStyle.restaurants);
+            if(search.searchText.length > 0){
+                let filtered = []
+                card[1].data.gridElements.infoWithStyle.restaurants.map((res) => {
+                    if(res.info.name.toLowerCase().includes(search.searchText.toLowerCase()))
+                        filtered.push(res)
+               })
+               setFilteredRestaurants(filtered)
+            } else
+                setFilteredRestaurants(card[1].data.gridElements.infoWithStyle.restaurants);
         } 
-    }, [card, allRestaurants]);
+    }, [card, allRestaurants,search]);
 
     let dispatch = useDispatch()
 
@@ -71,6 +82,7 @@ const Section = ({card}) => {
                 setIsLoading(true);
                 let count = JSON.parse(localStorage.getItem('resCount')) ? JSON.parse(localStorage.getItem('resCount')) : 10;
                 let latLng = JSON.parse(localStorage.getItem('latLng'));
+                console.log(latLng)
                 const data = await fetch(UPDATE_RESTAURANTS_LIST_URL, {
                     method: "POST", 
                     mode : 'cors',
@@ -80,7 +92,7 @@ const Section = ({card}) => {
                     body: JSON.stringify({
                         "lat": latLng?.lat ? latLng.lat : 17.385044,
                         "lng": latLng?.lng ? latLng.lng : 78.486671,
-                        "nextOffset": "COVCELQ4KICQvKLaz5a5BDCnEzgC",
+                        "nextOffset": "COVCELQ4KICg97fn1ojZJTCnEw==",
                         "widgetOffset": {
                             "NewListingView_Topical_Fullbleed": "",
                             "NewListingView_category_bar_chicletranking_TwoRows": "",
@@ -98,7 +110,7 @@ const Section = ({card}) => {
                             "apiName": "FoodHomePage"
                         },
                         "page_type": "DESKTOP_WEB_LISTING",
-                        "_csrf": "SPLRMDCj4ep9-Xa2Bql5uyN33EzQQf4pCgkj3Rvo"
+                        "_csrf": "YH5n08SgbkUZ-zpAL-zeJwmc09fXXBG7yc5H8D_s"
                     }), 
                 });
                 const json = await data.json();
@@ -132,7 +144,7 @@ const Section = ({card}) => {
         }
     }, [card, dispatch])
 
-    if(card[0] === 'offers' || card[0] === 'whats_on_your_mind') {
+    if((card[0] === 'offers' || card[0] === 'whats_on_your_mind') && !search.isSearchClicked ) {
         let style = {};
         let imageUrl = '';
         let data = card[1].data.gridElements.infoWithStyle.info;

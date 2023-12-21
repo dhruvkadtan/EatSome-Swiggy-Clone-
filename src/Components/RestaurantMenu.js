@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import { MENU_API } from "../Utils/Constants";
 import RestaurantMenuAccordion from "./RestaurantMenuAccordian";
 import CardShimmer from "./CardShimmer";
-import { useSelector , useDispatch } from "react-redux";
-import { clearCart } from "../Utils/CartSlice";
 import Loading from "./Loading";
 
 
@@ -13,7 +11,8 @@ const RestaurantMenu = () => {
     const [restaurant,setRestaurant] = useState(null);
     const [offers , setOffers] = useState([])
     const [showIndex, setShowIndex] = useState(0);
-    const [menu , setMenu] = useState([])
+    const [menu , setMenu] = useState([]);
+  
 
     const containerRef = useRef(null);
 
@@ -25,10 +24,11 @@ const RestaurantMenu = () => {
         containerRef.current.scrollLeft += 500; 
     };
 
+
+  
     useEffect(() => {
        
         getRestaurantInfo();
-       
     },[])
 
     const getRestaurantInfo = async() => {
@@ -46,7 +46,7 @@ const RestaurantMenu = () => {
     }
 
     return(
-        <div  className="pl-[20%] pr-[20%] pt-3 pb-3">
+        <div  className="pl-[20%] pr-[20%] pt-3 pb-3 select-none">
             <div className="border-b-2 border-dotted border-gray-500  p-2 flex justify-between">
                 <div>
                     <h1 className="font-semibold text-xl">{restaurant?.name}</h1> 

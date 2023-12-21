@@ -2,8 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Navbar from "./src/Components/Navbar";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import Help from "./src/Components/Help";
-import SignIn from "./src/Components/SignIn";
 import Cart from "./src/Components/Cart";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
 import Body from "./src/Components/Body";
@@ -31,14 +29,7 @@ const approuter = createBrowserRouter([
             {
                 path : "/",
                 element : <Body/>,
-            },
-            {
-                path : "/help",
-                element : <Help/>,
-            },
-            {
-                path : "/signin",
-                element : <SignIn/>,
+            
             },
             {
                 path : "/cart",
@@ -49,7 +40,7 @@ const approuter = createBrowserRouter([
                 path : "/restaurant/:id",
                 element : <RestaurantMenu/>,
             }, 
-          
+         
         
         ]
     }

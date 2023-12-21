@@ -1,6 +1,8 @@
 const Error = () => {
     return(
-        <h3>Error Occured</h3>
+       <div>
+        Error
+       </div>
     )
 }
 

@@ -85,7 +85,7 @@ const Item = ({resDetails,item}) => {
         <div className="flex border-b-2 border-gray-300 p-3 space-x-2 justify-between" key={item?.card?.info?.id}>
             <div style={{"maxWidth" : "calc(100% - 144px)"}}>
                 <h2 className="text-slate-800 font-semibold">{item?.card?.info?.name}</h2>
-                <h3 className="text-slate-800 font-semibold">{item?.card?.info?.price / 100}</h3>
+                <h3 className="text-slate-800 font-semibold">&#8377;{item?.card?.info?.price / 100}</h3>
                 <h3 className="text-gray-400 mt-2 mb-2">{item?.card?.info?.description}</h3>
             </div>
             <div className="relative inline-block mb-4">

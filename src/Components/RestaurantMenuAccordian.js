@@ -5,8 +5,8 @@ const RestaurantMenuAccordion = ({resDetails, cardDetails, isAccordionOpen,setSh
 
   
     return(
-        <div>
-            <div className="cursor-pointer flex justify-between mb-8 border-b-8 border-gray-200" 
+        <div className="mb-8 border-b-8 border-gray-200">
+            <div className="cursor-pointer flex justify-between " 
                 onClick={() => {
                 setShowIndex();
             }}>
@@ -42,17 +42,3 @@ const RestaurantMenuAccordion = ({resDetails, cardDetails, isAccordionOpen,setSh
 
 export default RestaurantMenuAccordion;
 
-
-
-/* 
-
-
-
-                                <div className="relative justify-center]">
-                                    
-                                    <button onClick={() => dispatch(addItem(detail?.card?.info))}
-                                             className="absolute bottom-0 font-semibold rounded-md text-sm px-5 py-2 text-green-500 border-2 border-gray-300">
-                                        ADD
-                                    </button>
-                                </div>
-*/
