@@ -16,7 +16,7 @@ const Carousel = ({ style, imageUrl, data, title }) => {
   return (
     <div className="sm:m-[5%] min-[375px]:m-[5%] max-[450px]:m-[5%]">
       <div className='flex justify-between items-center mt-5'>
-        <div className="font-bold text-2xl">{title}</div>
+        <div className="font-bold min-[300px]:text-lg md:text-xl lg:text-2xl">{title}</div>
         <div className='flex space-x-2'>
           <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center cursor-pointer" onClick={prev}>
             <svg

@@ -45,8 +45,8 @@ const RestaurantMenu = () => {
         return (<><Loading text={"Hold Tight, Loading Menu"}/><CardShimmer/></>)
     }
 
-    return(
-        <div  className="pl-[20%] pr-[20%] pt-3 pb-3 select-none">
+    return (
+        <div  className="min-[1px]:px-[5%] md:px-[10%] lg:px-[20%] py-3 select-none">
             <div className="border-b-2 border-dotted border-gray-500  p-2 flex justify-between">
                 <div>
                     <h1 className="font-semibold text-xl">{restaurant?.name}</h1> 
@@ -63,7 +63,7 @@ const RestaurantMenu = () => {
                 <div><h1 className="font-bold">{restaurant?.sla?.deliveryTime} MINS        {restaurant?.costForTwoMessage}</h1></div>
                 <div className="flex space-x-2 pt-2 pb-2">
                     {
-                        offers.length > 0 && offers.map((offer) => {
+                        offers?.length > 0 && offers?.map((offer) => {
                             return (
                                 <div className="border-2 border-gray-300 rounded-md p-1">
                                     <h2 className="text-md font-bold text-gray-500">{offer?.info?.header}</h2>
@@ -76,7 +76,7 @@ const RestaurantMenu = () => {
             </div>
             <div className="border-b-8 border-gray-200 pb-5">
                 {
-                    menu.map((card,index) => (
+                    menu?.map((card,index) => (
                         
                         <div key={index}>
                             {
@@ -147,7 +147,7 @@ const RestaurantMenu = () => {
             <div className="mt-5">
               {
                
-                menu.map((card,index) =>  (
+                menu?.map((card,index) =>  (
                         <div key={index}>
                             {
                                 (card?.card?.card?.itemCards )

@@ -183,8 +183,8 @@ const Section = ({card}) => {
     
        return (
             <div className='sm:m-[5%] min-[375px]:m-[5%] max-[412px]:m-[5%] '>
-                <div className=" flex justify-between ">
-                    <div className="font-bold text-2xl ">{card[1].data.title ? card[1].data.title : card[1].data.header.title}</div>
+                <div className=" flex justify-between space-x-2">
+                    <div className="font-bold min-[300px]:text-lg md:text-xl lg:text-2xl ">{card[1].data.title ? card[1].data.title : card[1].data.header.title}</div>
                     {
                         card[0] === 'top_brands_for_you' && <div className="flex space-x-2">
                             <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center cursor-pointer" onClick={prev}>
@@ -222,7 +222,7 @@ const Section = ({card}) => {
                         </div>
                     }
                 </div>
-                <div ref={containerRef} className= {card[0] === 'top_brands_for_you' ? 'flex mt-4 space-x-5 overflow-x-scroll scrollbar-hide' : 'flex flex-wrap mt-4'}>
+                <div ref={containerRef} className= {card[0] === 'top_brands_for_you' ? 'flex mt-4 space-x-5 overflow-x-scroll scrollbar-hide' : 'grid min-[300px]:grid-cols-1 min-[580px]:grid-cols-2 min-[1000px]:grid-cols-3 min-[1240px]:grid-cols-4 mt-4 '}>
                     {
                         filteredRestaurants.map((restaurant) => {
                             return(
@@ -243,11 +243,12 @@ const Section = ({card}) => {
                     }
                 </div>
                 {isLoading && 
-                    <div className="flex flex-wrap">
-                        <Shimmer/>
-                        <Shimmer/>
-                        <Shimmer/>
-                        <Shimmer/>
+                    <div className="grid min-[300px]:grid-cols-1 min-[580px]:grid-cols-2 min-[1000px]:grid-cols-3 min-[1240px]:grid-cols-4 ">
+                        {
+                            Array(8).fill("").map((arr) => (
+                                <Shimmer/>
+                            ))
+                        }
                     </div>
                 }
             </div>
@@ -260,8 +261,8 @@ const Section = ({card}) => {
                 {other.map((details,index) => {
                     return(
                     <div key={index} className="m-4">
-                        <div className="font-bold text-2xl">{details.title}</div>
-                        <div className="grid grid-cols-4 gap-4 mt-4 text-center">
+                        <div className="font-bold min-[300px]:text-lg md:text-xl lg:text-2xl">{details.title}</div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 text-center">
                             {details.brands.map((brand, index) => (
                             <div className='border p-4 truncate cursor-pointer' key={index}><a href={brand.link} target='_blank' rel="noreferrer">{brand.text}</a></div>
                             ))}

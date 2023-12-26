@@ -11,7 +11,7 @@ const Body = () => {
 
     return cards && (cards.length === 0) ? (<Loading  text={'Looking for great food near you...'}/>) : (
         
-        <div className="lg:mx-[10%] mt-8 select-none"> 
+        <div className="lg:mx-[10%] md:mx-[5%] mt-8 select-none"> 
  
              {
                 cards.map((card, index) => (<Section key={index} card={card}/>))

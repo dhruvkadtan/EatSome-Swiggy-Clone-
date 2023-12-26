@@ -50,11 +50,11 @@ const Cart = () => {
     }
 
     return(
-        <div className="bg-gray-100 h-screen py-10 select-none">
+        <div className="bg-gray-100 min-[300px]:h-screen md:h-screen pt-10 select-none">
             {
                cartItems.length > 0 ?
                 (
-                    <div className="bg-white mx-[25%] p-10" >
+                    <div className="bg-white min-[300px]:mx-[5%] md:mx-[15%] lg:mx-[25%] p-10" >
                             <Link to={"/restaurant/" + resDetails.id}>
                             <div className="flex">
                                 <img

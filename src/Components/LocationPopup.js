@@ -57,7 +57,7 @@ const LocationPopup = ({setShowLocationPopUp}) => {
 
     
     return(
-        <div className="bg-white border-2 shadow-sm h-screen w-1/3 fixed top-0 left-0 z-50">
+        <div className="bg-white border-2 shadow-sm h-screen md:w-1/2 lg:w-1/3 fixed top-0 left-0 z-50">
             <div className="pl-[30%] pr-[10%] pb-[30%] pt-[10%] ">
                 <div className="pb-2">
                     <img onClick={setShowLocationPopUp} className="w-8 h-8 hover:cursor-pointer" src="https://static.thenounproject.com/png/1202535-200.png" alt="close"/>
