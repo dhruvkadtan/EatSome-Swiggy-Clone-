@@ -3,7 +3,7 @@ import Item from "./Item";
 
 const RestaurantMenuAccordion = ({resDetails, cardDetails, isAccordionOpen,setShowIndex }) => {
 
-  
+    console.log(cardDetails)
     return(
         <div className="mb-8 border-b-8 border-gray-200">
             <div className="cursor-pointer flex justify-between " 
@@ -11,7 +11,7 @@ const RestaurantMenuAccordion = ({resDetails, cardDetails, isAccordionOpen,setSh
                 setShowIndex();
             }}>
                 <div className="font-bold p-4 text-gray-500 text-lg">
-                    {cardDetails?.title + " (" + cardDetails?.itemCards?.length + ")"}
+                    {cardDetails?.title}  {cardDetails?.itemCards && (" (" + cardDetails?.itemCards?.length+ ")")}
                 </div>
                 <div>
                     { isAccordionOpen ? (
@@ -32,7 +32,8 @@ const RestaurantMenuAccordion = ({resDetails, cardDetails, isAccordionOpen,setSh
             {
                 isAccordionOpen &&   <div>
                     {
-                        cardDetails?.itemCards && cardDetails?.itemCards.map((detail) => <Item resDetails={resDetails} item={detail}/>)
+                        cardDetails?.itemCards  && cardDetails?.itemCards
+                                .map((detail) => <Item resDetails={resDetails} item={detail}/>)
                     }
                 </div>
             }

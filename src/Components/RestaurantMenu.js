@@ -34,6 +34,7 @@ const RestaurantMenu = () => {
     const getRestaurantInfo = async() => {
         const data = await fetch(MENU_API + resId.id)
         const json = await data.json();
+        console.log(json)
         setRestaurant(json?.data?.cards[0]?.card?.card?.info);
         setOffers(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers);
         setMenu(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
@@ -148,9 +149,11 @@ const RestaurantMenu = () => {
               {
                
                 menu?.map((card,index) =>  (
+                    
                         <div key={index}>
                             {
-                                (card?.card?.card?.itemCards )
+                                
+                                (card?.card?.card?.itemCards || card?.card?.card?.categories )
                                 && 
                                 <RestaurantMenuAccordion
                                     resDetails = {restaurant}

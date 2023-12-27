@@ -222,7 +222,7 @@ const Section = ({card}) => {
                         </div>
                     }
                 </div>
-                <div ref={containerRef} className= {card[0] === 'top_brands_for_you' ? 'flex mt-4 space-x-5 overflow-x-scroll scrollbar-hide' : 'grid min-[300px]:grid-cols-1 min-[580px]:grid-cols-2 min-[1000px]:grid-cols-3 min-[1240px]:grid-cols-4 mt-4 '}>
+                <div ref={containerRef} className= {card[0] === 'top_brands_for_you' ? 'flex mt-4 space-x-5 overflow-x-scroll scrollbar-hide' : 'grid min-[300px]:grid-cols-1 min-[580px]:grid-cols-2 min-[1060px]:grid-cols-3 min-[1300px]:grid-cols-4 mt-4 '}>
                     {
                         filteredRestaurants.map((restaurant) => {
                             return(
@@ -243,7 +243,7 @@ const Section = ({card}) => {
                     }
                 </div>
                 {isLoading && 
-                    <div className="grid min-[300px]:grid-cols-1 min-[580px]:grid-cols-2 min-[1000px]:grid-cols-3 min-[1240px]:grid-cols-4 ">
+                    <div className="grid min-[300px]:grid-cols-1 min-[580px]:grid-cols-2 min-[1060px]:grid-cols-3 min-[1300px]:grid-cols-4 ">
                         {
                             Array(8).fill("").map((arr) => (
                                 <Shimmer/>
