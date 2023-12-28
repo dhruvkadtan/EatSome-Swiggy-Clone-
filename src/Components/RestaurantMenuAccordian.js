@@ -3,7 +3,6 @@ import Item from "./Item";
 
 const RestaurantMenuAccordion = ({resDetails, cardDetails, isAccordionOpen,setShowIndex }) => {
 
-    console.log(cardDetails)
     return(
         <div className="mb-8 border-b-8 border-gray-200">
             <div className="cursor-pointer flex justify-between " 
@@ -13,7 +12,7 @@ const RestaurantMenuAccordion = ({resDetails, cardDetails, isAccordionOpen,setSh
                 <div className="font-bold p-4 text-gray-500 text-lg">
                     {cardDetails?.title}  {cardDetails?.itemCards && (" (" + cardDetails?.itemCards?.length+ ")")}
                 </div>
-                <div>
+                { cardDetails?.itemCards ? (<div>
                     { isAccordionOpen ? (
                         <img
                         alt='collapse'
@@ -27,7 +26,7 @@ const RestaurantMenuAccordion = ({resDetails, cardDetails, isAccordionOpen,setSh
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHVb1IcFrhPX2fOXprYZ-vX4xKjRWEa8KLLA&usqp=CAU"
                         />
                     )}
-                </div>
+                </div>) : (<div>Note : categories are in Developement</div>)}
             </div>
             {
                 isAccordionOpen &&   <div>

@@ -34,7 +34,6 @@ const RestaurantMenu = () => {
     const getRestaurantInfo = async() => {
         const data = await fetch(MENU_API + resId.id)
         const json = await data.json();
-        console.log(json)
         setRestaurant(json?.data?.cards[0]?.card?.card?.info);
         setOffers(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers);
         setMenu(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
@@ -62,11 +61,11 @@ const RestaurantMenu = () => {
             </div>
             <div className="border-b-2 border-gray-300 p-2">
                 <div><h1 className="font-bold">{restaurant?.sla?.deliveryTime} MINS        {restaurant?.costForTwoMessage}</h1></div>
-                <div className="flex space-x-2 pt-2 pb-2">
+                <div className="md:flex space-x-2 pt-2 pb-2">
                     {
                         offers?.length > 0 && offers?.map((offer) => {
                             return (
-                                <div className="border-2 border-gray-300 rounded-md p-1">
+                                <div className="min-[1px]:m-2 min-[1px]:w-full border-2 border-gray-300 rounded-md p-1">
                                     <h2 className="text-md font-bold text-gray-500">{offer?.info?.header}</h2>
                                     <h3 className="text-xs font-semibold text-gray-500">{offer?.info?.couponCode} | {offer?.info?.description}</h3>
                                 </div>

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateRestaurants } from "../Utils/restaurantSlice";
 import { UPDATE_RESTAURANTS_LIST_URL } from "../Utils/Constants";
 import { Shimmer } from "./CardShimmer";
-
+import { updateIsSearchClicked } from "../Utils/SearchSlice";
 
 const Section = ({card}) => {
   
@@ -183,6 +183,7 @@ const Section = ({card}) => {
     
        return (
             <div className='sm:m-[5%] min-[375px]:m-[5%] max-[412px]:m-[5%] '>
+                     
                 <div className=" flex justify-between space-x-2">
                     <div className="font-bold min-[300px]:text-lg md:text-xl lg:text-2xl ">{card[1].data.title ? card[1].data.title : card[1].data.header.title}</div>
                     {
@@ -222,7 +223,7 @@ const Section = ({card}) => {
                         </div>
                     }
                 </div>
-                <div ref={containerRef} className= {card[0] === 'top_brands_for_you' ? 'flex mt-4 space-x-5 overflow-x-scroll scrollbar-hide' : 'grid min-[300px]:grid-cols-1 min-[580px]:grid-cols-2 min-[1060px]:grid-cols-3 min-[1300px]:grid-cols-4 mt-4 '}>
+                <div ref={containerRef} className= {card[0] === 'top_brands_for_you' ? 'flex mt-4 space-x-5 overflow-x-scroll scrollbar-hide' : 'grid max-[580px]:mx-[14%]  min-[300px]:grid-cols-1 min-[580px]:grid-cols-2 min-[1060px]:grid-cols-3 min-[1300px]:grid-cols-4 mt-4'}>
                     {
                         filteredRestaurants.map((restaurant) => {
                             return(

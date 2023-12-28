@@ -23,7 +23,7 @@ const CardShimmer = () => {
 
 export const Shimmer = () => {
     return (
-        <div className="w-60 h-92 rounded-lg hover:cursor-pointer hover:scale-95 overflow-hidden mb-8">
+        <div className="w-60 h-92 max-[580px]:mx-[14%] rounded-lg hover:cursor-pointer hover:scale-95 overflow-hidden mb-8">
             <div className="w-50 h-40 border border-solid bg-gray-300"></div>
             <div className="mt-2 w-60 h-7 border border-solid bg-gray-300 rounded-lg"></div>
             <div className="mt-2 w-60 h-7 border border-solid bg-gray-300 rounded-lg"></div>

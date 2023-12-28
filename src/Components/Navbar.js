@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useSelector , useDispatch} from "react-redux";
-import { updateIsSearchClicked, updateSearchText , clearSearchText} from "../Utils/SearchSlice";
+import { updateIsSearchClicked} from "../Utils/SearchSlice";
 import LocationPopup from "./LocationPopup";
 
 
 const Navbar = () => {
     const cartItems = useSelector(store => store.cart.items);
     const location = useSelector(store => store.location.location);
-    const search = useSelector(store => store.search)
+ 
    
     const [toggleMenu, setToggleMenu] = useState(false)
     const [showLocationPopUp, setShowLocationPopUp] = useState(false);
@@ -24,12 +24,6 @@ const Navbar = () => {
 
     let dispatch = useDispatch();
 
-    const handleClick = () => {
-        if(search.isSearchClicked) {
-            dispatch(clearSearchText())
-        }
-        dispatch(updateIsSearchClicked())
-    }
   
 
     return(
@@ -44,28 +38,36 @@ const Navbar = () => {
                                                                          <Location description="Laxmi Chowk, Phase 1, Hinjawadi Rajiv Gandhi Infotech Park, Hinjawadi, Pimpri-Chinchwad, Maharashtra"/>}
                         </div>
                     </div>
+
+                    <ul className="min-[1px]:hidden md:flex justify-end min-[1px]:space-x-2 lg:space-x-8 md:space-x-4 ">
+                        <li>           
+                            <Link className=" text-slate-600 font-semibold  min-[1px]:text-sm md:text-lg hover:text-orange-500" to="/" onClick={() => dispatch(updateIsSearchClicked())}>Search</Link>
+                        </li>
+                        <li>
+                            <Link className=" text-slate-600 font-semibold  min-[1px]:text-sm md:text-lg hover:text-orange-500" to="/cart">Cart [{cartItems.length}]</Link>
+                        </li>
+                    </ul>
+                    <img
+                        src="https://cdn4.iconfinder.com/data/icons/navigation-40/24/hamburger-menu-512.png"
+                        alt="hamburger-icon"
+                        className='md:hidden w-10'
+                        onClick={() => setToggleMenu(!toggleMenu)}
+                    />
                     {
-                       <div className="w-full">
-                            <ul className="flex justify-end min-[1px]:space-x-2 lg:space-x-8 md:space-x-4 ">
-                                <li className="">
-                                    {   
-                                        !search.isSearchClicked ? (<button className=" text-gray-600 font-semibold  min-[1px]:text-sm md:text-lg hover:text-orange-500" onClick={() => handleClick()}>Search</button>) :
-                                        (<div className="flex">
-                                            <input
-                                                placeholder="Search For Restaurants.."   
-                                                className="border-2 border-gray-400 min-[1px]:w-20 md:w-52 rounded-md p-2 hover:border-orange-500"
-                                                value={search.searchText}
-                                                onChange={(e) => dispatch(updateSearchText(e.target.value))}
-                                            />
-                                            <button className="border-2 rounded-md p-2 border-gray-400 mx-2 hover:border-orange-500" onClick={() => handleClick()}>x</button>
-                                        </div>)
-                                    }
+                        toggleMenu && (
+                            <div className="fixed top-20 right-0 h-full w-3/4 bg-white shadow-lg shadow-gray-500 overflow-y-auto z-[1000]">
+                              <ul className='py-6 space-y-4 text-lg cursor-pointer'>
+                                <li className='px-4 py-2 border-b text-slate-600 font-semibold  min-[1px]:text-sm md:text-lg hover:text-orange-500'>
+                                    <Link to='/' onClick={() => {dispatch(updateIsSearchClicked()) ; setToggleMenu(false)}}>Search</Link>
                                 </li>
-                                <li><Link className=" text-slate-600 font-semibold  min-[1px]:text-sm md:text-lg hover:text-orange-500" to="/cart">Cart [{cartItems.length}]</Link></li>
-                            </ul>
-                        </div>
-                    }
-            </div>
+                                <li className='px-4 py-2 border-b text-slate-600 font-semibold  min-[1px]:text-sm md:text-lg hover:text-orange-500'>
+                                    <Link to='/cart' onClick={() => setToggleMenu(false)}>Cart</Link>
+                                </li>
+                              </ul>
+                            </div>
+                          )
+                    }  
+                </div>
             <div>
                 {
                     showLocationPopUp && <LocationPopup setShowLocationPopUp={() => {setShowLocationPopUp(!showLocationPopUp)}}/>

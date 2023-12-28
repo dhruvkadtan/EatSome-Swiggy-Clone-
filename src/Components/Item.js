@@ -7,7 +7,6 @@ import Modal from "./Modal";
 
 const Item = ({resDetails,item}) => {
     
-    console.log(item)
     let dispatch = useDispatch();
     
     const cartItems = useSelector(store => store.cart.items);
