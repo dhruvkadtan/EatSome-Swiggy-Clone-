@@ -17,7 +17,7 @@ const Navbar = () => {
     const Location = (props) => {
         return (
             <div className="flex space-x-2  hover:text-orange-500">
-                <div className="font-semibold   min-[1px]:text-sm md:text-lg truncate ">{props.description}</div>
+                <div className=" font-medium   min-[1px]:text-sm md:text-lg truncate ">{props.description}</div>
             </div>
         )
     }
@@ -33,7 +33,7 @@ const Navbar = () => {
                         
                         <Link to="/"><img className="min-[1px]:w-20  h-10 md:w-10" src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg" alt="EatSome"/></Link>
                         
-                        <div  className="font-bold pl-4 truncate text-slate-600 cursor-pointer" onClick={() => {setShowLocationPopUp(!showLocationPopUp)}}>
+                        <div  className="font-semibold pl-4 truncate text-slate-600 cursor-pointer" onClick={() => {setShowLocationPopUp(!showLocationPopUp)}}>
                             {Object.keys(location.address).length > 0 ? <Location description={location.description}/> :
                                                                          <Location description="Laxmi Chowk, Phase 1, Hinjawadi Rajiv Gandhi Infotech Park, Hinjawadi, Pimpri-Chinchwad, Maharashtra"/>}
                         </div>

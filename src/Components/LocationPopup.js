@@ -57,14 +57,14 @@ const LocationPopup = ({setShowLocationPopUp}) => {
 
     
     return(
-        <div className="bg-white border-2 shadow-sm h-screen md:w-1/2 lg:w-1/3 fixed top-0 left-0 z-50">
-            <div className="pl-[30%] pr-[10%] pb-[30%] pt-[10%] ">
+        <div className="bg-white border-2 shadow-sm h-screen min-[1px]:w-1/2 lg:w-1/3 fixed top-0 left-0 z-50">
+            <div className="pl-[10%]  min-[700px]:pl-[30%] pr-[10%] pb-[30%] pt-[10%] ">
                 <div className="pb-2">
                     <img onClick={setShowLocationPopUp} className="w-8 h-8 hover:cursor-pointer" src="https://static.thenounproject.com/png/1202535-200.png" alt="close"/>
                 </div>
                 <div className="pb-2 flex ">
                     <input
-                        className="p-2 w-full border-2 border-gray-400" 
+                        className="p-2 text-sm md:text-lg w-full border-2 border-gray-400" 
                         placeholder="Search for area, street name.."
                         value={location}
                         onChange={(e) => setLocation(e.target.value)}
