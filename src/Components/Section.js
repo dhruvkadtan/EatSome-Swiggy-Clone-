@@ -23,6 +23,7 @@ const Section = ({card}) => {
     const containerRef = useRef(null);
     const scrollDivRef = useRef(null);
 
+    let dispatch = useDispatch()
 
     const prev = () => {
         containerRef.current.scrollLeft -= 500; 
@@ -69,7 +70,7 @@ const Section = ({card}) => {
         } 
     }, [card, allRestaurants,search]);
 
-    let dispatch = useDispatch()
+    
 
     useEffect(() => {
       
@@ -82,7 +83,7 @@ const Section = ({card}) => {
                 setIsLoading(true);
                 let count = JSON.parse(localStorage.getItem('resCount')) ? JSON.parse(localStorage.getItem('resCount')) : 10;
                 let latLng = JSON.parse(localStorage.getItem('latLng'));
-                console.log(latLng)
+                
                 const data = await fetch(UPDATE_RESTAURANTS_LIST_URL, {
                     method: "POST", 
                     mode : 'cors',

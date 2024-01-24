@@ -11,7 +11,7 @@ const RestaurantCard = (props) => {
             <div className='relative'>
                 <img 
                     alt={name}
-                    className="h-44 w-full overflow-hidden rounded-lg"
+                    className="h-44 w-full overflow-hidden rounded-lg "
                     src={IMG_CDN_URL + cloudinaryImageId}
                 />
                 {aggregatedDiscountInfoV3 && <div className="absolute inset-x-0 rounded-b-lg bottom-0 h-6 bg-black bg-opacity-50 ">

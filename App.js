@@ -3,19 +3,21 @@ import ReactDOM from "react-dom/client";
 import Navbar from "./src/Components/Navbar";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Cart from "./src/Components/Cart";
-import RestaurantMenu from "./src/Components/RestaurantMenu";
 import Body from "./src/Components/Body";
 import { Provider } from "react-redux";
 import store from "./src/Utils/Store";
+import RestaurantMenu from "./src/Components/RestaurantMenu";
 
 const App = () => {
     return(
         <Provider store={store}>
+            
             <>
                 <Navbar/>
                 <Outlet/>
              
             </>
+          
         </Provider>
     )
 }

@@ -12,9 +12,7 @@ const Cart = () => {
     let gstCharges = 20;
     let platformFee = 5;
     let toPay = gstCharges + platformFee;
-    console.log(cartItems)
-    console.log(resDetails)   
-
+  
     const orderedItems = new Map();
     cartItems.map((item) => {
         if(orderedItems.has(item.id)) {
@@ -72,7 +70,7 @@ const Cart = () => {
                             <div className="mt-8 ">
                                 {
                                     _orderedItems.map((item) => {
-                                        console.log(item)
+                                       
                                         return(
                                             <div key={item[0]} className="w-full flex justify-between py-2 ">
                                                <div className="m-2 font-semibold text-slate-700 text-md w-4/12">{item[1].item.name}</div>

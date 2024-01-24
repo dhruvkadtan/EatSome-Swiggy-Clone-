@@ -52,7 +52,9 @@ const LocationPopup = ({setShowLocationPopUp}) => {
                 setMatchingLocations([])
         },1000)
 
-        
+        return(() => {
+            clearTimeout(timer);
+        })
     },[location]);
 
     
